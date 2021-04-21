@@ -4,6 +4,8 @@ const Schema = mongoose.Schema
 
 const MovieSchema = Schema({
     title: String,
+    picture: String,
+    video: String,
     release: {
         type: Date,
         default: Date.now()

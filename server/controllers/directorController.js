@@ -21,9 +21,9 @@ export const getOneDirector = async (req, res) => {
 }
 
 export const postOneDirector = async (req, res) => {
-    const {name, bio, age} = req.body
+    const {name, bio, age, picture} = req.body
     try {
-        const newDirector = await new Director({name, bio, age})
+        const newDirector = await new Director({name, bio, age, picture})
         const savedDirector = await newDirector.save()
         res.json(savedDirector)
     } catch (error) {

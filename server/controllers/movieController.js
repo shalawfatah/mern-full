@@ -12,7 +12,7 @@ export const getAllMovies = async (req, res) => {
 export const getOneMovie = async (req, res) => {
     const {id} = req.params
     try {
-        const oneMovie = await (await Movie.findById({_id: id})).populated('director')
+        const oneMovie = await Movie.findById({_id: id}).populate('director')
         if(!oneMovie) res.send('No Movie is found')
         res.json(oneMovie)        
     } catch (error) {
@@ -21,9 +21,9 @@ export const getOneMovie = async (req, res) => {
 }
 
 export const postOneMovie = async (req, res) => {
-    const {title, release, actors, genre, director} = req.body
+    const {title, release, actors, genre, director, picture, video} = req.body
     try {
-        const newMovie = await new Movie({title, release, actors, genre, director})
+        const newMovie = await new Movie({title, release, actors, genre, director, picture, video})
         const savedMovie = await newMovie.save()
         res.json(savedMovie)
     } catch (error) {

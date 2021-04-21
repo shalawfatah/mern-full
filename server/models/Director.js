@@ -5,7 +5,8 @@ const Schema = mongoose.Schema
 const DirectorSchema = Schema({
     name: String,
     bio: String,
-    age: Number
+    age: Number,
+    picture: String
 })
 
 const Director = mongoose.model('Director', DirectorSchema)
