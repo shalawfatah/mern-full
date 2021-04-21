@@ -1,5 +1,5 @@
 import express from 'express'
-import {db} from './config/db.js'
+import mongoose from 'mongoose'
 import movieRoutes from './routes/movies.js'
 
 const app = express()
@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/', movieRoutes)
 
 const PORT = 2222
-
+mongoose.connect('mongodb://localhost:27017/movies', {useNewUrlParser: true, useUnifiedTopology:true})
 app.listen(PORT, () => {
     console.log(`App is running on port ${PORT}`)
 })
