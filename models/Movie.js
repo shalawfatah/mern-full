@@ -12,7 +12,10 @@ const MovieSchema = Schema({
         {name: String, bio: String}
     ],
     genre:[String],
-    director: String
+    director: {
+        type: Schema.Types.ObjectId,
+        ref: 'Director'
+    }
 })
 
 const Movie = mongoose.model('Movie', MovieSchema)
