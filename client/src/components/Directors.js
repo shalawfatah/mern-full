@@ -1,6 +1,7 @@
 
 
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import {contextDirector} from './DirectorProvider'
 
 const Directors = () => {
@@ -11,8 +12,9 @@ const Directors = () => {
             {directors.map(director => {
                 return (
                     <>
+                    <Link to={`/directors/${director.name}`}>
                     <h1>{director.name}</h1>
-                    <p>{director.bio}</p>
+                    </Link>
                     </>
                 )
             })}

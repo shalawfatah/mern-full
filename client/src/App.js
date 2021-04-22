@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Movies from './components/Movies';
 import Directors from './components/Directors';
 import SingleMovie from './components/SingleMovie';
+import Director from './components/Director';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
         </Route>
         <Route path='/movies/:title' exact>
           <SingleMovie />  
+        </Route>
+        <Route path='/directors/:name' exact>
+          <Director />  
         </Route>
       </Switch>
     </BrowserRouter>
